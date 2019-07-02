@@ -24,7 +24,7 @@ y = as.numeric(as.matrix(data[,2]))
 spl <- smooth.spline(y ~ t)
 t.new <- c(1,3,6,9,12,15,18,21,24,27,30,33,36,39,48,60,72) # Maturities
 new<-predict(spl, t.new)
-plot(new, ylab = 'Yield', xlab = 'months', main = 'Yield Curve')
+plot(new, ylab = 'Yield', xlab = 'months', main = paste0('Yield Curve: ', date))
 lines(new)
 
-format(seq(as.Date('2019/01/02'), as.Date('2019/06/28'), 'day'), format="%d-%m-%Y", tz="UTC")
+format(seq(as.Date('2019/01/02'), as.Date('2019/06/28'), 'day'), format="%d-%m-%Y", tz="UTC") # think in a loop...
