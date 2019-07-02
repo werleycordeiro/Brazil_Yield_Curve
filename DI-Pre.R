@@ -22,7 +22,6 @@ yieldsbr = function(Initial_Date,Final_Date,Maturities){
 	data = data.frame(matrix(data, ncol=3, byrow=TRUE))
 	data[,2] = as.numeric(gsub(",", ".", gsub("\\.", "", data[,2])))
 	data[,3] = as.numeric(gsub(",", ".", gsub("\\.", "", data[,3])))
-
  # Spline
 	t = as.integer(as.matrix(data[,1]))/21
 	y = as.numeric(as.matrix(data[,2]))
