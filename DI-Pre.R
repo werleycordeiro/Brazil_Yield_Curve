@@ -7,8 +7,8 @@ library(httr)
 library(rvest)
 
 # Scraping
-data = "05/10/2018" # First data available: "01/02/2004"
-di = GET(url = "http://www2.bmf.com.br/pages/portal/bmfbovespa/lumis/lum-taxas-referenciais-bmf-ptBR.asp",query = list(Data = data))
+date = "05/10/2018" # First data available: "01/02/2004"
+di = GET(url = "http://www2.bmf.com.br/pages/portal/bmfbovespa/lumis/lum-taxas-referenciais-bmf-ptBR.asp",query = list(Data = date))
 di = read_html(di) %>% html_nodes("table")
 data = di %>% html_nodes("td") %>% html_text()
 data = data.frame(matrix(data, ncol=3, byrow=TRUE))
