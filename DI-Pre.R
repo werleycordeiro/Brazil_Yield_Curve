@@ -39,7 +39,7 @@ yieldsbr = function(Initial_Date,Final_Date,Maturities){
 }
 
 # Example
-Initial_Date = '2019/06/28'
+Initial_Date = '2019/06/28' # Since 08/08/2003
 Final_Date = '2019/07/01'
 Maturities = c(1,3,6,9,12,15,18,21,24,27,30,33,36,39,48,60,72)
 
