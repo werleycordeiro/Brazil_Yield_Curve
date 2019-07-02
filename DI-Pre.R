@@ -6,7 +6,7 @@ library(httr)
 library(rvest)
 
 # Scraping
-data = "06/28/2019" # First date available: "01/02/2004"
+data = "06/28/2019" # First data available: "01/02/2004"
 di = GET(url = "http://www2.bmf.com.br/pages/portal/bmfbovespa/lumis/lum-taxas-referenciais-bmf-enUS.asp",query = list(Data = data))
 di = read_html(di) %>% html_nodes("table")
 data = di %>% html_nodes("td") %>% html_text()
