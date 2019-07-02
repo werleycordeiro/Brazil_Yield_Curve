@@ -17,7 +17,6 @@ head(data)
 ts.plot(data[,2])
 
 # Spline
-
 t = as.integer(as.matrix(data[,1]))/21
 y = as.numeric(as.matrix(data[,2]))
 spl <- smooth.spline(y ~ t)
