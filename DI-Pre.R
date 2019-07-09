@@ -44,3 +44,18 @@ Maturities = c(1,3,6,9,12,15,18,21,24,27,30,33,36,39,48,60,72)
 
 yields = yieldsbr(Initial_Date=Initial_Date,Final_Date=Final_Date,Maturities=Maturities)
 yields
+
+# Not run:
+'
+ybrd = read.csv("YBR1619.csv")
+date = as.Date(ybrd[,1],format=c("%d-%m-%Y"))
+# require(xts)
+ybrd5 = xts(ybrd[,-1],order.by=date)
+ybrd5 = abs(ybrd5)
+head(ybrd5)
+
+ybrd = rbind(ybrd1,ybrd2,ybrd3,ybrd4,ybrd5)
+write.zoo(ybrd,file="ybrd.zoo",row.names=TRUE,col.names=TRUE)
+ybrm = ybrd[xts:::endof(ybrd, "months")]
+write.zoo(ybrm,file="ybrm.zoo",row.names=TRUE,col.names=TRUE)
+'
