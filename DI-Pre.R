@@ -47,15 +47,16 @@ yields
 
 # Not run:
 '
-ybrd = read.csv("YBR1619.csv")
-date = as.Date(ybrd[,1],format=c("%d-%m-%Y"))
+setwd("")
+write.csv(yields,file="yields.csv")
+yields = read.csv("yields.csv")
+date = as.Date(yields[,1],format=c("%d-%m-%Y"))
 # require(xts)
-ybrd5 = xts(ybrd[,-1],order.by=date)
-ybrd5 = abs(ybrd5)
-head(ybrd5)
+yields = xts(yields[,-1],order.by=date)
+yields = yields(ybrd5)
+head(yields)
 
-ybrd = rbind(ybrd1,ybrd2,ybrd3,ybrd4,ybrd5)
-write.zoo(ybrd,file="ybrd.zoo",row.names=TRUE,col.names=TRUE)
-ybrm = ybrd[xts:::endof(ybrd, "months")]
-write.zoo(ybrm,file="ybrm.zoo",row.names=TRUE,col.names=TRUE)
+write.zoo(yields,file="yields.zoo",row.names=TRUE,col.names=TRUE)
+yields_mon = yields[xts:::endof(yields, "months")]
+write.zoo(yields_mon,file="yields_mon",row.names=TRUE,col.names=TRUE)
 '
