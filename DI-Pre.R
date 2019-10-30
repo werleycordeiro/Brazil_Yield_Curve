@@ -4,8 +4,8 @@
 # Function
 yieldsbr = function(Initial_Date,Final_Date,Maturities){
  # Packages
- packages <- c("rvest","httr","functional")
- new.packages <- packages[!(packages %in% installed.packages()[,"Package"])]
+ packages = c("rvest","httr","functional")
+ new.packages = packages[!(packages %in% installed.packages()[,"Package"])]
  if(length(new.packages)) install.packages(new.packages)
  suppressMessages(library(rvest))
  suppressMessages(library(httr))
@@ -25,13 +25,13 @@ yieldsbr = function(Initial_Date,Final_Date,Maturities){
  # Spline
 	t = as.integer(as.matrix(data[,1]))/21
 	y = as.numeric(as.matrix(data[,2]))
-	spl <- smooth.spline(y ~ t)
-	t.new <- Maturities
-	new<-predict(spl, t.new)
+	spl = smooth.spline(y ~ t)
+	t.new = Maturities
+	new = predict(spl, t.new)
 	mat[i,] = new$y
 	pb = txtProgressBar(min = (1/length(dates)), max = rol, style = 3)
     	setTxtProgressBar(pb,i)
-	}
+		}
 	}
  colnames(mat) = paste0("M",Maturities)
  rownames(mat) = dates
