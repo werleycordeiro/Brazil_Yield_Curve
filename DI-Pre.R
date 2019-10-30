@@ -60,5 +60,6 @@ head(yields)
 
 write.zoo(yields,file="yields.zoo",row.names=TRUE,col.names=TRUE)
 yields_mon = yields[xts:::endof(yields, "months")]
+# yields_mon = yields[xts:::startof(yields, "months")]
 write.zoo(yields_mon,file="yields_mon",row.names=TRUE,col.names=TRUE)
 '
