@@ -29,7 +29,7 @@ yieldsbr = function(Initial_Date,Final_Date,Maturities){
 	t.new = Maturities
 	new = predict(spl, t.new)
 	mat[i,] = new$y
-	pb = txtProgressBar(min = (1/length(dates)), max = rol, style = 3)
+	pb = txtProgressBar(min = (1/length(dates)), max = length(dates), style = 3)
     	setTxtProgressBar(pb,i)
 		}
 	}
