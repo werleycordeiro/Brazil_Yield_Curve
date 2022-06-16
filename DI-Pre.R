@@ -15,7 +15,7 @@ yieldsbr = function(Initial_Date,Final_Date,Maturities){
  mat = matrix(NA,length(dates),length(Maturities))
  # Scraping
  for(i in 1:length(dates)){
- 	di = GET(url = "http://www2.bmf.com.br/pages/portal/bmfbovespa/lumis/lum-taxas-referenciais-bmf-ptBR.asp",query = list(Data = dates[i]))
+ 	di = GET(url = "https://www2.bmf.com.br/pages/portal/bmfbovespa/lumis/lum-taxas-referenciais-bmf-ptBR.asp",query = list(Data = dates[i]))
 	data = read_html(di) %>% html_nodes("table") %>% html_nodes("td") %>% html_text()
 	if(length(data)==0){i=i
 	}else{
